@@ -58,10 +58,13 @@ export default function Navbar() {
               href={waUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-wa hover:bg-wa-hover text-white text-sm font-bold shadow-wa transition-transform active:scale-95"
+              className="relative overflow-hidden inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-wa hover:bg-wa-hover text-white text-sm font-bold shadow-wa transition-transform active:scale-95 group"
             >
-              <MessageCircle className="w-4 h-4 fill-white/20" />
-              <span>Chat WhatsApp</span>
+              {/* Shimmer Sheen Sweep */}
+              <span className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/25 to-transparent transform -skew-x-12 -translate-x-full animate-shimmer motion-reduce:animate-none pointer-events-none" />
+              
+              <MessageCircle className="w-4 h-4 fill-white/20 relative z-10" />
+              <span className="relative z-10">Chat WhatsApp</span>
             </a>
           </div>
 

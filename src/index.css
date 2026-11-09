@@ -53,3 +53,37 @@
 .animate-pulse-subtle {
   animation: pulse-subtle 2s infinite ease-in-out;
 }
+
+/* Shimmer Light Sweep Effect for Primary CTA Buttons */
+@keyframes shimmer-sweep {
+  0% {
+    transform: translateX(-150%) skewX(-15deg);
+  }
+  30%, 100% {
+    transform: translateX(350%) skewX(-15deg);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer-sweep 3.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Infinite Marquee Ticker */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}

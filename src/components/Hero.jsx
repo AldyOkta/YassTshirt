@@ -38,11 +38,14 @@ export default function Hero() {
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-3.5 rounded-full bg-wa hover:bg-wa-hover text-white font-bold text-base shadow-wa transition-transform active:scale-95 group"
+                className="relative overflow-hidden w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-3.5 rounded-full bg-wa hover:bg-wa-hover text-white font-bold text-base shadow-wa transition-transform active:scale-95 group"
               >
-                <MessageCircle className="w-5 h-5 fill-white/20" />
-                <span>Pesan via WhatsApp</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                {/* Shimmer Sheen Sweep */}
+                <span className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/25 to-transparent transform -skew-x-12 -translate-x-full animate-shimmer motion-reduce:animate-none pointer-events-none" />
+                
+                <MessageCircle className="w-5 h-5 fill-white/20 relative z-10" />
+                <span className="relative z-10">Pesan via WhatsApp</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform relative z-10" />
               </a>
 
               <a
