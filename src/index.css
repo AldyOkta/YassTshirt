@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #FAF7F2;
+  --card: #FFFFFF;
+  --line: #E8E2D9;
+  --ink: #14213D;
+  --mute: #5B6577;
+  --soft: rgba(20, 33, 61, 0.08);
+  --wa: #15803D;
+  --wa-hover: #116B32;
+  --accent: #F2B705;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0F1626;
+    --card: #182036;
+    --line: #27314A;
+    --ink: #F5F1EA;
+    --mute: #A3ACBF;
+    --soft: rgba(245, 241, 234, 0.08);
+    --wa: #22A559;
+    --wa-hover: #1C8D4A;
+  }
+}
+
+@layer base {
+  html {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg);
+    color: var(--ink);
+  }
+}
+
+.transition-smooth {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 0.85;
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s infinite ease-in-out;
+}
