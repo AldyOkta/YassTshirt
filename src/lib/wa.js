@@ -1,32 +1,68 @@
 /**
- * WhatsApp Helper Utility
- * Menghasilkan link wa.me yang aman dan terformat
+ * WhatsApp Helper Utility dengan Proteksi Anti-Scraper (Obfuscation)
+ * Mencegah bot scraper membaca nomor telepon atau domain pesan instan dari kode statis.
  */
+import { SHOP_CONFIG } from '../data/products';
+
+// XOR decryption key
+const CIPHER_KEY = 42;
+
+// Byte sequence untuk domain pesan instan terenkripsi XOR 42
+const WA_DOMAIN_BYTES = [74, 86, 86, 82, 81, 16, 85, 85, 85, 75, 4, 79, 71, 85];
 
 /**
- * Membersihkan format nomor telepon dan mengonversi format lokal (08xx) ke format internasional (628xx)
- * @param {string} phone 
+ * Mendekode token nomor telepon yang terenkripsi
+ * @param {number[] | string} token 
  * @returns {string}
  */
-export function formatPhoneNumber(phone) {
-  if (!phone) return '6281234567890';
-  const cleaned = phone.replace(/\D/g, '');
-  if (cleaned.startsWith('0')) {
-    return '62' + cleaned.slice(1);
+export function decodePhoneToken(token) {
+  if (Array.isArray(token)) {
+    return token.map((c) => String.fromCharCode(c ^ CIPHER_KEY)).join('');
   }
-  return cleaned;
+  if (typeof token === 'string') {
+    const cleaned = token.replace(/\D/g, '');
+    if (cleaned.startsWith('0')) {
+      return '62' + cleaned.slice(1);
+    }
+    return cleaned;
+  }
+  // Default fallback (terenkripsi)
+  return [20, 24, 30, 23, 20, 22, 27, 21, 24, 26, 26, 22, 23]
+    .map((c) => String.fromCharCode(c ^ CIPHER_KEY))
+    .join('');
 }
 
 /**
- * Membuat URL wa.me dengan teks otomatis
- * @param {string} phone Nomor tujuan (misal: '6281234567890')
- * @param {string} text Pesan otomatis yang akan langsung terisi
+ * Menghasilkan domain pesan instan secara dinamis di runtime memori
  * @returns {string}
  */
-export function createWhatsAppLink(phone, text = '') {
-  const formattedPhone = formatPhoneNumber(phone);
+function getDecodedDomain() {
+  return WA_DOMAIN_BYTES.map((c) => String.fromCharCode(c ^ CIPHER_KEY)).join('');
+}
+
+/**
+ * Menghasilkan tautan WhatsApp lengkap hanya saat dibutuhkan di memori
+ * @param {string} text Pesan otomatis
+ * @param {number[] | string} [customToken] Token nomor kustom jika ada
+ * @returns {string}
+ */
+export function getWhatsAppUrl(text = '', customToken = null) {
+  const domain = getDecodedDomain();
+  const phone = decodePhoneToken(customToken || SHOP_CONFIG.whatsappToken);
   const encodedText = encodeURIComponent(text);
-  return `https://wa.me/${formattedPhone}?text=${encodedText}`;
+  return `${domain}${phone}?text=${encodedText}`;
+}
+
+/**
+ * Membuka WhatsApp di tab baru saat diklik oleh user nyata.
+ * Tidak meninggalkan jejak atribut href di DOM HTML sebelum interaksi manusia.
+ * @param {string} text Pesan otomatis
+ */
+export function openWhatsApp(text = '') {
+  const url = getWhatsAppUrl(text);
+  if (typeof window !== 'undefined') {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }
 }
 
 /**

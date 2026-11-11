@@ -12,7 +12,7 @@ import FloatingWA from './components/FloatingWA';
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-cream text-navy selection:bg-navy selection:text-white">
+    <div className="min-h-[100dvh] flex flex-col bg-cream text-navy selection:bg-navy selection:text-white overflow-x-hidden relative">
       {/* Top Sticky Navigation */}
       <Navbar />
 

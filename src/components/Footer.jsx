@@ -1,7 +1,7 @@
 import React from 'react';
 import { Instagram, MessageCircle, MapPin, Clock, Truck } from 'lucide-react';
 import { SHOP_CONFIG } from '../data/products';
-import { createWhatsAppLink, WA_MESSAGES } from '../lib/wa';
+import { openWhatsApp, WA_MESSAGES } from '../lib/wa';
 
 function TikTokIcon({ className = "w-4 h-4" }) {
   return (
@@ -12,29 +12,28 @@ function TikTokIcon({ className = "w-4 h-4" }) {
 }
 
 export default function Footer() {
-  const waUrl = createWhatsAppLink(SHOP_CONFIG.whatsapp, WA_MESSAGES.general);
 
   return (
-    <footer className="bg-white border-t border-line pt-16 pb-12">
+    <footer className="bg-navy text-white border-t border-white/10 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-line">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
           
           {/* Brand Col */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-xl bg-white shadow-sm p-1.5 border border-line flex items-center justify-center">
+              <div className="w-11 h-11 rounded-xl bg-white shadow-sm p-1.5 flex items-center justify-center">
                 <img
-                  src="/YassTshirt-Logo.png"
+                  src="/yasstshirt-logo.webp"
                   alt="YassTshirt Logo"
                   className="w-full h-full object-contain"
                 />
               </div>
-              <span className="text-xl font-extrabold text-navy">
+              <span className="text-xl font-extrabold text-white">
                 {SHOP_CONFIG.name}
               </span>
             </div>
             
-            <p className="text-sm text-mute leading-relaxed max-w-sm">
+            <p className="text-sm text-[#C5CCDA] leading-relaxed max-w-sm">
               Workshop sablon digital DTF (Direct to Film) berkualitas tinggi. Solusi cetak kaos custom 
               desain bebas warna untuk kebutuhan personal, komunitas, brand apparel, dan event.
             </p>
@@ -45,55 +44,54 @@ export default function Footer() {
                 href={SHOP_CONFIG.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-cream hover:bg-navy hover:text-white text-navy border border-line flex items-center justify-center transition-colors"
+                className="w-11 h-11 rounded-xl bg-white/10 hover:bg-white hover:text-navy text-white border border-white/15 flex items-center justify-center transition-colors"
                 aria-label="Instagram YassTshirt"
               >
-                <Instagram className="w-4 h-4" />
+                <Instagram className="w-5 h-5" />
               </a>
               <a
                 href={SHOP_CONFIG.tiktokUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-cream hover:bg-navy hover:text-white text-navy border border-line flex items-center justify-center transition-colors"
+                className="w-11 h-11 rounded-xl bg-white/10 hover:bg-white hover:text-navy text-white border border-white/15 flex items-center justify-center transition-colors"
                 aria-label="TikTok YassTshirt"
               >
-                <TikTokIcon className="w-4 h-4" />
+                <TikTokIcon className="w-5 h-5" />
               </a>
-              <a
-                href={waUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-cream hover:bg-wa hover:text-white text-navy border border-line flex items-center justify-center transition-colors"
+              <button
+                type="button"
+                onClick={() => openWhatsApp(WA_MESSAGES.general)}
+                className="w-11 h-11 rounded-xl bg-white/10 hover:bg-wa hover:text-white text-white border border-white/15 flex items-center justify-center transition-colors cursor-pointer"
                 aria-label="WhatsApp YassTshirt"
               >
-                <MessageCircle className="w-4 h-4" />
-              </a>
+                <MessageCircle className="w-5 h-5" />
+              </button>
             </div>
           </div>
 
           {/* Navigasi Links */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-bold text-navy uppercase tracking-wider">
+            <h3 className="text-xs font-bold text-white uppercase tracking-wider">
               NAVIGASI CEPAT
-            </h4>
-            <ul className="space-y-2 text-sm text-mute">
+            </h3>
+            <ul className="space-y-2 text-sm text-[#C5CCDA]">
               <li>
-                <a href="#katalog" className="hover:text-navy transition-colors">
-                  Katalog Kaos Satuan & Partai
+                <a href="#katalog" className="hover:text-white transition-colors">
+                  Katalog Kaos Satuan &amp; Partai
                 </a>
               </li>
               <li>
-                <a href="#keunggulan" className="hover:text-navy transition-colors">
+                <a href="#keunggulan" className="hover:text-white transition-colors">
                   Keunggulan Sablon DTF
                 </a>
               </li>
               <li>
-                <a href="#cara-pesan" className="hover:text-navy transition-colors">
-                  4 Langkah Pemesanan
+                <a href="#cara-pesan" className="hover:text-white transition-colors">
+                  Cara Pesan Kaos Custom
                 </a>
               </li>
               <li>
-                <a href="#faq" className="hover:text-navy transition-colors">
+                <a href="#faq" className="hover:text-white transition-colors">
                   Tanya Jawab (FAQ)
                 </a>
               </li>
@@ -102,20 +100,20 @@ export default function Footer() {
 
           {/* Operational & Shipping Info */}
           <div className="lg:col-span-4 space-y-3">
-            <h4 className="text-xs font-bold text-navy uppercase tracking-wider">
+            <h3 className="text-xs font-bold text-white uppercase tracking-wider">
               INFORMASI LAYANAN
-            </h4>
-            <ul className="space-y-2.5 text-xs sm:text-sm text-mute">
+            </h3>
+            <ul className="space-y-2.5 text-xs sm:text-sm text-[#C5CCDA]">
               <li className="flex items-start gap-2.5">
-                <Clock className="w-4 h-4 text-navy shrink-0 mt-0.5" />
+                <Clock className="w-4 h-4 text-white shrink-0 mt-0.5" />
                 <span>{SHOP_CONFIG.operatingHours}</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <Truck className="w-4 h-4 text-navy shrink-0 mt-0.5" />
+                <Truck className="w-4 h-4 text-white shrink-0 mt-0.5" />
                 <span>{SHOP_CONFIG.addressDescription}</span>
               </li>
               <li className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-navy shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-white shrink-0 mt-0.5" />
                 <span>Pengiriman dari workshop ke seluruh wilayah Indonesia.</span>
               </li>
             </ul>
@@ -124,9 +122,9 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-mute">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#C5CCDA]">
           <p>© {new Date().getFullYear()} {SHOP_CONFIG.name}. Seluruh hak cipta dilindungi.</p>
-          <p>Ditenagai teknologi sablon DTF & Cotton Combed Premium.</p>
+          <p>Ditenagai teknologi sablon DTF &amp; Cotton Combed Premium.</p>
         </div>
       </div>
     </footer>

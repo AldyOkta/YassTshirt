@@ -33,7 +33,7 @@ export default function MarqueeTicker() {
             ) : (
               <Sparkles className="w-4 h-4 text-accent" />
             )}
-            <span className="text-xs sm:text-sm font-extrabold tracking-widest text-white/95 uppercase">
+            <span className="text-xs sm:text-sm font-extrabold tracking-wider text-white/95 uppercase">
               {item.text}
             </span>
             <span className="text-accent font-bold opacity-60 ml-3">•</span>
