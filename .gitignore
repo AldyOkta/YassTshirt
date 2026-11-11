@@ -31,3 +31,7 @@ Thumbs.db
 # File Dokumentasi Markdown (JANGAN DIPUSH)
 *.md
 docs/
+
+# File Aset Mentah (13 MB resolusi tinggi, jangan dipush ke Git)
+assets-raw/
+
