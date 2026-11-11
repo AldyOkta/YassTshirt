@@ -1,65 +1,87 @@
 /**
- * WhatsApp Helper Utility dengan Proteksi Anti-Scraper (Obfuscation)
- * Mencegah bot scraper membaca nomor telepon atau domain pesan instan dari kode statis.
+ * WhatsApp Helper Utility
+ * Menghasilkan tautan resmi WhatsApp https://wa.me/<nomor>?text=<pesan>
+ * Mendukung format string nomor langsung (08xxx / 628xxx / +62xxx) maupun token array.
  */
-import { SHOP_CONFIG } from '../data/products';
-
-// XOR decryption key
-const CIPHER_KEY = 42;
-
-// Byte sequence untuk domain pesan instan terenkripsi XOR 42
-const WA_DOMAIN_BYTES = [74, 86, 86, 82, 81, 16, 85, 85, 85, 75, 4, 79, 71, 85];
+import { SHOP_CONFIG } from '../data/products.js';
 
 /**
- * Mendekode token nomor telepon yang terenkripsi
- * @param {number[] | string} token 
+ * Format nomor telepon agar valid untuk URL WhatsApp (wa.me)
+ * Mengubah format lokal (08xxx) atau internasional (+62xxx) menjadi 628xxx tanpa simbol.
+ * @param {string | number[] | null | undefined} rawPhone
  * @returns {string}
+ */
+export function formatPhoneNumber(rawPhone) {
+  if (!rawPhone) {
+    return '6281234567890';
+  }
+
+  // Jika berupa array token (kompatibilitas mundur)
+  if (Array.isArray(rawPhone)) {
+    const CIPHER_KEY = 42;
+    try {
+      const decoded = rawPhone.map((c) => String.fromCharCode(c ^ CIPHER_KEY)).join('');
+      const digitsOnly = decoded.replace(/\D/g, '');
+      if (digitsOnly.length >= 9) {
+        if (digitsOnly.startsWith('0')) return '62' + digitsOnly.slice(1);
+        if (digitsOnly.startsWith('62')) return digitsOnly;
+        return '62' + digitsOnly;
+      }
+    } catch {
+      // fallback jika gagal dekode
+    }
+    return '6281234567890';
+  }
+
+  // Jika berupa string nomor biasa
+  if (typeof rawPhone === 'string') {
+    let cleaned = rawPhone.replace(/\D/g, '');
+    if (cleaned.startsWith('0')) {
+      cleaned = '62' + cleaned.slice(1);
+    } else if (cleaned.startsWith('8')) {
+      cleaned = '62' + cleaned;
+    }
+    return cleaned || '6281234567890';
+  }
+
+  return '6281234567890';
+}
+
+/**
+ * Alias fungsi untuk kompatibilitas ke belakang
  */
 export function decodePhoneToken(token) {
-  if (Array.isArray(token)) {
-    return token.map((c) => String.fromCharCode(c ^ CIPHER_KEY)).join('');
-  }
-  if (typeof token === 'string') {
-    const cleaned = token.replace(/\D/g, '');
-    if (cleaned.startsWith('0')) {
-      return '62' + cleaned.slice(1);
-    }
-    return cleaned;
-  }
-  // Default fallback (terenkripsi)
-  return [20, 24, 30, 23, 20, 22, 27, 21, 24, 26, 26, 22, 23]
-    .map((c) => String.fromCharCode(c ^ CIPHER_KEY))
-    .join('');
+  return formatPhoneNumber(token);
 }
 
 /**
- * Menghasilkan domain pesan instan secara dinamis di runtime memori
+ * Mengambil nomor WhatsApp toko yang sudah diformat standar internasional
+ * @param {string | number[]} [customPhone]
  * @returns {string}
  */
-function getDecodedDomain() {
-  return WA_DOMAIN_BYTES.map((c) => String.fromCharCode(c ^ CIPHER_KEY)).join('');
+export function getStorePhoneNumber(customPhone = null) {
+  return formatPhoneNumber(customPhone || SHOP_CONFIG.whatsapp || SHOP_CONFIG.whatsappToken);
 }
 
 /**
- * Menghasilkan tautan WhatsApp lengkap hanya saat dibutuhkan di memori
+ * Menghasilkan tautan WhatsApp resmi lengkap
  * @param {string} text Pesan otomatis
- * @param {number[] | string} [customToken] Token nomor kustom jika ada
- * @returns {string}
+ * @param {string} [customPhone] Nomor kustom opsional
+ * @returns {string} Contoh: https://wa.me/6281234567890?text=Halo...
  */
-export function getWhatsAppUrl(text = '', customToken = null) {
-  const domain = getDecodedDomain();
-  const phone = decodePhoneToken(customToken || SHOP_CONFIG.whatsappToken);
+export function getWhatsAppUrl(text = '', customPhone = null) {
+  const phone = getStorePhoneNumber(customPhone);
   const encodedText = encodeURIComponent(text);
-  return `${domain}${phone}?text=${encodedText}`;
+  return `https://wa.me/${phone}${encodedText ? `?text=${encodedText}` : ''}`;
 }
 
 /**
- * Membuka WhatsApp di tab baru saat diklik oleh user nyata.
- * Tidak meninggalkan jejak atribut href di DOM HTML sebelum interaksi manusia.
+ * Membuka WhatsApp di tab baru saat diklik oleh user
  * @param {string} text Pesan otomatis
+ * @param {string} [customPhone] Nomor kustom opsional
  */
-export function openWhatsApp(text = '') {
-  const url = getWhatsAppUrl(text);
+export function openWhatsApp(text = '', customPhone = null) {
+  const url = getWhatsAppUrl(text, customPhone);
   if (typeof window !== 'undefined') {
     window.open(url, '_blank', 'noopener,noreferrer');
   }

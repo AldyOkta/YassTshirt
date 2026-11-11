@@ -6,9 +6,8 @@
 export const SHOP_CONFIG = {
   name: 'YassTshirt',
   tagline: 'Custom Kaos Sablon DTF Satuan & Partai',
-  // Nomor WhatsApp resmi YassTshirt (Terproteksi Anti-Scraper)
-  // Obfuscated XOR Token. Jika ingin ganti, bisa isi string nomor biasa atau array token.
-  whatsappToken: [20, 24, 30, 23, 20, 22, 27, 21, 24, 26, 26, 22, 23],
+  // Nomor WhatsApp resmi toko YassTshirt
+  whatsapp: '085641720045',
   instagram: 'yasstshirts_',
   instagramUrl: 'https://www.instagram.com/yasstshirts_',
   tiktok: 'yasstshirtcustom',
