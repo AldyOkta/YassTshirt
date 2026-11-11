@@ -17,7 +17,7 @@ export default function Footer() {
     <footer className="bg-navy text-white border-t border-white/10 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
-          
+
           {/* Brand Col */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
@@ -25,16 +25,20 @@ export default function Footer() {
                 <img
                   src="/yasstshirt-logo.webp"
                   alt="YassTshirt Logo"
+                  width="44"
+                  height="44"
                   className="w-full h-full object-contain"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <span className="text-xl font-extrabold text-white">
                 {SHOP_CONFIG.name}
               </span>
             </div>
-            
+
             <p className="text-sm text-[#C5CCDA] leading-relaxed max-w-sm">
-              Workshop sablon digital DTF (Direct to Film) berkualitas tinggi. Solusi cetak kaos custom 
+              Pusat sablon digital DTF (Direct to Film) &amp; custom apparel berkualitas tinggi. Solusi cetak kaos custom
               desain bebas warna untuk kebutuhan personal, komunitas, brand apparel, dan event.
             </p>
 
@@ -114,7 +118,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-white shrink-0 mt-0.5" />
-                <span>Pengiriman dari workshop ke seluruh wilayah Indonesia.</span>
+                <span>Pengiriman ke seluruh wilayah Indonesia.</span>
               </li>
             </ul>
           </div>
@@ -124,7 +128,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#C5CCDA]">
           <p>© {new Date().getFullYear()} {SHOP_CONFIG.name}. Seluruh hak cipta dilindungi.</p>
-          <p>Ditenagai teknologi sablon DTF &amp; Cotton Combed Premium.</p>
+          <p>Bawa desainmu, biar kami yang cetak.</p>
         </div>
       </div>
     </footer>

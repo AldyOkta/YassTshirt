@@ -29,16 +29,9 @@ export default function ImageLightboxModal({ product, onClose }) {
     setIsDragging(false);
   }, [product]);
 
-  // Lock body scroll, tangani tombol Escape, dan integrasi tombol Back gesture di ponsel
+  // Lock body scroll dan tangani tombol Escape secara stabil (tanpa konflik browser history)
   useEffect(() => {
     if (!product) return;
-
-    // Push state sementara agar tombol Back ponsel menutup modal tanpa keluar dari website
-    window.history.pushState({ lightboxOpen: true }, '');
-
-    const handlePopState = () => {
-      onClose();
-    };
 
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
@@ -46,20 +39,13 @@ export default function ImageLightboxModal({ product, onClose }) {
       }
     };
 
-    window.addEventListener('popstate', handlePopState);
     document.addEventListener('keydown', handleKeyDown);
     const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
 
     return () => {
-      window.removeEventListener('popstate', handlePopState);
       document.removeEventListener('keydown', handleKeyDown);
       document.body.style.overflow = originalOverflow;
-
-      // Jika modal ditutup lewat tombol X atau klik luar (bukan tombol Back), rapikan history browser
-      if (window.history.state?.lightboxOpen) {
-        window.history.back();
-      }
     };
   }, [product, onClose]);
 
@@ -281,7 +267,7 @@ export default function ImageLightboxModal({ product, onClose }) {
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
-          className={`relative min-h-0 flex-1 overflow-hidden bg-[#F5F2EC] touch-none flex items-center justify-center p-2 sm:p-4 select-none ${
+          className={`relative min-h-0 flex-1 overflow-hidden bg-[#F8FAFC] touch-none flex items-center justify-center p-2 sm:p-4 select-none ${
             scale === 1
               ? 'cursor-zoom-in'
               : isDragging

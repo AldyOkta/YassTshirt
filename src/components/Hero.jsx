@@ -74,8 +74,11 @@ export default function Hero() {
                   <img
                     src="/detail-reguler.webp"
                     alt="Kaos Reguler Fit DTF YassTshirt"
+                    width="400"
+                    height="500"
                     className="w-full h-full object-cover"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="absolute bottom-4 left-4 bg-navy/85 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-1 rounded-md">
@@ -89,8 +92,11 @@ export default function Hero() {
                   <img
                     src="/detail-oversize.webp"
                     alt="Kaos Oversize Fit DTF YassTshirt"
+                    width="400"
+                    height="500"
                     className="w-full h-full object-cover"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="absolute bottom-4 right-4 bg-navy/85 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-1 rounded-md">
@@ -104,8 +110,12 @@ export default function Hero() {
                   <img
                     src="/logo-2.webp"
                     alt="Logo YassTshirt Custom Sablon DTF"
+                    width="400"
+                    height="400"
                     className="w-full h-full object-contain p-4"
                     loading="eager"
+                    fetchpriority="high"
+                    decoding="async"
                   />
                 </div>
                 <div className="pt-2 text-center">

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import ProductCard from './ProductCard';
 import ImageLightboxModal from './ImageLightboxModal';
 import { PRODUCTS, FITTING_GUIDE } from '../data/products';
@@ -8,6 +8,10 @@ import { HelpCircle, MessageSquare, Shirt, Check } from 'lucide-react';
 export default function ProductCatalog() {
   const [selectedFilter, setSelectedFilter] = useState('all');
   const [activeZoomProduct, setActiveZoomProduct] = useState(null);
+
+  const handleCloseModal = useCallback(() => {
+    setActiveZoomProduct(null);
+  }, []);
 
   const filters = [
     { id: 'all', label: 'Semua Produk' },
@@ -174,10 +178,12 @@ export default function ProductCatalog() {
       </div>
 
       {/* Image Lightbox & Zoom Modal */}
-      <ImageLightboxModal
-        product={activeZoomProduct}
-        onClose={() => setActiveZoomProduct(null)}
-      />
+      {activeZoomProduct && (
+        <ImageLightboxModal
+          product={activeZoomProduct}
+          onClose={handleCloseModal}
+        />
+      )}
 
     </section>
   );

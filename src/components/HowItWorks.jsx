@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { 
   MessageCircle, 
   UploadCloud, 
@@ -27,8 +27,12 @@ export default function HowItWorks() {
   const [showOrderChart, setShowOrderChart] = useState(false);
   const [sectionRef, isVisible] = useScrollReveal({ threshold: 0.1 });
 
+  const handleCloseOrderChart = useCallback(() => {
+    setShowOrderChart(false);
+  }, []);
+
   return (
-    <section id="cara-pesan" className="py-16 sm:py-24 bg-[#EEF1F7] border-t border-line relative overflow-hidden">
+    <section id="cara-pesan" className="py-16 sm:py-24 bg-[#F1F5F9] border-t border-line relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -147,20 +151,18 @@ export default function HowItWorks() {
       </div>
 
       {/* Lightbox Modal untuk Bagan sistem-order.png */}
-      <ImageLightboxModal
-        product={
-          showOrderChart
-            ? {
-                name: 'Bagan Resmi Alur Pemesanan Kaos Custom YassTshirt',
-                image: '/sistem-order.webp',
-                badge: 'Alur Resmi Toko',
-                cut: 'CS WhatsApp Resmi YassTshirt',
-                priceLabel: 'Fast Response'
-              }
-            : null
-        }
-        onClose={() => setShowOrderChart(false)}
-      />
+      {showOrderChart && (
+        <ImageLightboxModal
+          product={{
+            name: 'Bagan Resmi Alur Pemesanan Kaos Custom YassTshirt',
+            image: '/sistem-order.webp',
+            badge: 'Alur Resmi Toko',
+            cut: 'CS WhatsApp Resmi YassTshirt',
+            priceLabel: 'Fast Response'
+          }}
+          onClose={handleCloseOrderChart}
+        />
+      )}
 
     </section>
   );

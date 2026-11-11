@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" type="image/png" href="/YassTshirt-Logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#14213d" />
+    <meta name="theme-color" content="#0F172A" />
     <title>YassTshirt - Sablon Kaos Custom DTF Satuan & Partai | Kualitas Premium</title>
     
     <!-- Canonical URL -->
@@ -37,10 +37,14 @@
     <meta name="twitter:description" content="Cetak kaos custom idamanmu dengan teknologi sablon DTF full color. Awet, detail presisi, tanpa batas warna. Konsultasi via WhatsApp!" />
     <meta name="twitter:image" content="https://yasstshirt.com/YassTshirt-Logo.png" />
 
-    <!-- Google Fonts: Plus Jakarta Sans -->
+    <!-- Google Fonts: Plus Jakarta Sans (Non-blocking Asynchronous Loading) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    </noscript>
   </head>
   <body class="bg-cream text-navy antialiased selection:bg-navy selection:text-white min-h-screen">
     <div id="root"></div>

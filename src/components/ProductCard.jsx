@@ -51,10 +51,15 @@ export default function ProductCard({ product, onImageClick }) {
       <div 
         role="button"
         tabIndex={0}
-        onClick={() => onImageClick && onImageClick(product)}
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          onImageClick && onImageClick(product);
+        }}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
+            e.stopPropagation();
             onImageClick && onImageClick(product);
           }
         }}
@@ -69,6 +74,7 @@ export default function ProductCard({ product, onImageClick }) {
           height="600"
           className="w-full h-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
           loading="lazy"
+          decoding="async"
         />
 
         {/* Hover Zoom Prompt Overlay */}
@@ -119,7 +125,7 @@ export default function ProductCard({ product, onImageClick }) {
           <h3 className="text-base sm:text-lg font-bold text-navy group-hover:text-navy transition-colors">
             {product.name}
           </h3>
-          <p className="mt-1.5 text-xs sm:text-sm text-mute line-clamp-2 leading-relaxed">
+          <p className="mt-1.5 text-xs sm:text-sm text-mute leading-relaxed">
             {product.description}
           </p>
 

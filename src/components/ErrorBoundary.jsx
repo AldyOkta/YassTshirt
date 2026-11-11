@@ -38,7 +38,7 @@ export default class ErrorBoundary extends React.Component {
                 Halaman Mengalami Kendala
               </h2>
               <p className="text-sm text-mute leading-relaxed">
-                Terjadi kendala teknis saat memuat tampilan. Jangan khawatir, workshop kami tetap melayani konsultasi dan pemesanan sablon kaos.
+                Terjadi kendala teknis saat memuat tampilan. Jangan khawatir, kami tetap melayani konsultasi dan pemesanan sablon kaos.
               </p>
             </div>
 

@@ -181,7 +181,7 @@ export const PRODUCTS = [
     badge: 'Include Custom Box',
     price: 85000,
     priceLabel: 'Mulai Rp 85.000',
-    description: 'Paket komplit siap jual untuk brand clothing kamu! Sudah termasuk Kaos 30s + Sablon DTF + Tag Brand Leher + Ziplock + Custom Box Logo Brand + Stiker Cutting Vinyl + Thank You Card.',
+    description: 'Paket komplit siap jual untuk brand clothing kamu! Sudah termasuk Kaos 30s + Sablon DTF + Tag Brand Leher + Ziplock + Custom Box Logo Brand + Stiker Cutting Vinyl.',
     cut: 'Reguler Fit (Lengkap Packaging Kit)',
     material: '100% Cotton Combed 30s + Kit Kemasan',
     printArea: 'Sablon Kaos + Tag Leher + Sablon Box',

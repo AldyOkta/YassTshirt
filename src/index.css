@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --bg: #FAF7F2;
+  --bg: #F8F9FA;
   --card: #FFFFFF;
-  --line: #E8E2D9;
-  --ink: #14213D;
-  --mute: #5B6577;
-  --soft: rgba(20, 33, 61, 0.08);
+  --line: #E2E8F0;
+  --ink: #0F172A;
+  --mute: #475569;
+  --soft: rgba(15, 23, 42, 0.06);
   --wa: #15803D;
   --wa-hover: #116B32;
-  --accent: #F2B705;
+  --accent: #F59E0B;
 }
 
 @media (prefers-color-scheme: dark) {

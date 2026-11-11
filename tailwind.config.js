@@ -8,19 +8,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        cream: '#FAF7F2',
-        line: '#E8E2D9',
+        cream: '#F8F9FA',
+        line: '#E2E8F0',
         navy: {
-          DEFAULT: '#14213D',
-          dark: '#0F1626',
-          soft: 'rgba(20, 33, 61, 0.08)',
+          DEFAULT: '#0F172A',
+          dark: '#020617',
+          soft: 'rgba(15, 23, 42, 0.06)',
         },
-        mute: '#5B6577',
+        mute: '#475569',
         wa: {
           DEFAULT: '#15803D',
           hover: '#116B32',
         },
-        accent: '#F2B705',
+        accent: '#F59E0B',
       },
       fontFamily: {
         sans: [

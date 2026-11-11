@@ -23,8 +23,11 @@ export default function Navbar() {
               <img 
                 src="/yasstshirt-logo.webp" 
                 alt="Logo YassTshirt" 
+                width="48"
+                height="48"
                 className="w-full h-full object-contain"
                 loading="eager"
+                decoding="async"
               />
             </div>
             <div>

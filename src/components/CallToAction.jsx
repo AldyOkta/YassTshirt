@@ -12,9 +12,9 @@ export default function CallToAction() {
           {/* Left Column: Direct Value & Confident Action (7 cols) */}
           <div className="lg:col-span-7 space-y-6 text-left">
 
-            {/* Workshop Identifier */}
+            {/* Brand Identifier */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-navy/5 text-xs font-semibold text-navy">
-              <span>Workshop Sablon DTF &amp; Apparel</span>
+              <span>Spesialis Sablon Kaos DTF &amp; Apparel</span>
             </div>
 
             {/* Headline — satu warna percaya diri tanpa underline ornamen */}
@@ -96,7 +96,7 @@ export default function CallToAction() {
               <div className="flex items-center justify-between text-xs">
                 <div>
                   <span className="font-extrabold text-navy tracking-wide">YASSTSHIRT APPAREL</span>
-                  <span className="text-mute ml-2 font-medium">Spesifikasi Workshop</span>
+                  <span className="text-mute ml-2 font-medium">Standar Produksi</span>
                 </div>
                 <span className="px-2.5 py-1 rounded-full bg-navy/5 text-navy font-bold text-[11px]">
                   Ready to Print
@@ -108,8 +108,11 @@ export default function CallToAction() {
                 <img
                   src="/brand-package.webp"
                   alt="Paket Brand YassTshirt Custom Kaos Sablon DTF"
+                  width="600"
+                  height="450"
                   className="w-full h-full object-contain"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
 

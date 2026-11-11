@@ -8,5 +8,14 @@ export default defineConfig({
     port: 3000,
     allowedHosts: ['.ngrok-free.dev'],
     open: false
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-react': ['react', 'react-dom']
+        }
+      }
+    }
   }
 })
