@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import MarqueeTicker from './components/MarqueeTicker';
@@ -11,6 +11,8 @@ import Footer from './components/Footer';
 import FloatingWA from './components/FloatingWA';
 
 export default function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="min-h-[100dvh] flex flex-col bg-cream text-navy selection:bg-navy selection:text-white overflow-x-hidden relative">
       {/* Top Sticky Navigation */}
@@ -21,7 +23,7 @@ export default function App() {
         <Hero />
         <MarqueeTicker />
         <Features />
-        <ProductCatalog />
+        <ProductCatalog onModalStateChange={setIsModalOpen} />
         <HowItWorks />
         <FAQ />
         <CallToAction />
@@ -30,8 +32,8 @@ export default function App() {
       {/* Bottom Footer */}
       <Footer />
 
-      {/* Floating Action Button (WhatsApp - Only Green Element) */}
-      <FloatingWA />
+      {/* Floating Action Button (WhatsApp - Only Green Element, disembunyikan saat modal terbuka) */}
+      <FloatingWA isHidden={isModalOpen} />
     </div>
   );
 }

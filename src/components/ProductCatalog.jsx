@@ -5,13 +5,19 @@ import { PRODUCTS, FITTING_GUIDE } from '../data/products';
 import { openWhatsApp, WA_MESSAGES } from '../lib/wa';
 import { HelpCircle, MessageSquare, Shirt, Check } from 'lucide-react';
 
-export default function ProductCatalog() {
+export default function ProductCatalog({ onModalStateChange }) {
   const [selectedFilter, setSelectedFilter] = useState('all');
   const [activeZoomProduct, setActiveZoomProduct] = useState(null);
 
+  const handleOpenModal = useCallback((product) => {
+    setActiveZoomProduct(product);
+    if (onModalStateChange) onModalStateChange(true);
+  }, [onModalStateChange]);
+
   const handleCloseModal = useCallback(() => {
     setActiveZoomProduct(null);
-  }, []);
+    if (onModalStateChange) onModalStateChange(false);
+  }, [onModalStateChange]);
 
   const filters = [
     { id: 'all', label: 'Semua Produk' },
@@ -146,7 +152,7 @@ export default function ProductCatalog() {
           <ProductCard
             key={product.id}
             product={product}
-            onImageClick={(p) => setActiveZoomProduct(p)}
+            onImageClick={handleOpenModal}
           />
         ))}
       </div>

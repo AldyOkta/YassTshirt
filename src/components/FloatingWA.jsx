@@ -9,11 +9,16 @@ function WhatsAppIcon({ className = "w-7 h-7" }) {
   );
 }
 
-export default function FloatingWA() {
+export default function FloatingWA({ isHidden = false }) {
   return (
     <aside 
       aria-label="Kontak Cepat WhatsApp"
-      className="fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom,0px))] right-5 sm:bottom-6 sm:right-6 z-50 flex items-center group"
+      aria-hidden={isHidden}
+      className={`fixed bottom-[calc(1.25rem+env(safe-area-inset-bottom,0px))] right-5 sm:bottom-6 sm:right-6 z-40 flex items-center group transition-all duration-300 ${
+        isHidden 
+          ? 'opacity-0 pointer-events-none scale-75' 
+          : 'opacity-100 scale-100'
+      }`}
     >
       {/* Tooltip on Hover (Desktop) */}
       <span className="hidden sm:inline-block mr-3 px-3.5 py-1.5 rounded-full bg-navy text-white text-xs font-semibold shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none border border-line/20">
