@@ -32,7 +32,7 @@ export default function HowItWorks() {
   }, []);
 
   return (
-    <section id="cara-pesan" className="py-16 sm:py-24 bg-[#F1F5F9] border-t border-line relative overflow-hidden">
+    <section id="cara-pesan" className="py-16 sm:py-24 bg-[#F8FAFC] border-t border-line relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -59,7 +59,7 @@ export default function HowItWorks() {
                   style={{
                     transitionDelay: `${idx * 75}ms`,
                   }}
-                  className={`group relative flex flex-col justify-between items-start bg-white p-6 sm:p-7 rounded-2xl border border-line hover:border-navy/30 hover:shadow-card hover:-translate-y-1.5 transition-all duration-500 ease-out ${
+                  className={`group relative flex flex-col justify-between items-start bg-white p-6 sm:p-7 rounded-2xl border border-line hover:border-slate-300 hover:shadow-card hover:-translate-y-1.5 transition-all duration-500 ease-out ${
                     isVisible
                       ? 'opacity-100 translate-y-0'
                       : 'opacity-0 translate-y-6 motion-reduce:opacity-100 motion-reduce:translate-y-0'
@@ -69,15 +69,15 @@ export default function HowItWorks() {
                   {/* Top: Step Number & Icon Header */}
                   <div className="w-full">
                     <div className="w-full flex items-center justify-between mb-5">
-                      {/* Animated Icon Node */}
-                      <div className="w-12 h-12 rounded-2xl bg-navy/10 text-navy p-3 flex items-center justify-center shadow-sm group-hover:bg-navy group-hover:text-white group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+                      {/* Animated Icon Node (Soft Emerald Tint #DCFCE7 / #15803D) */}
+                      <div className="w-12 h-12 rounded-2xl bg-[#DCFCE7] text-[#15803D] p-3 flex items-center justify-center shadow-xs group-hover:bg-[#16A34A] group-hover:text-white group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                         <IconComponent className="w-5 h-5 transition-transform duration-300" />
                       </div>
 
                       {/* Step Number with Active Accent */}
                       <div className="flex items-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-navy/20 group-hover:bg-accent transition-colors duration-300" />
-                        <span className="text-xl sm:text-2xl font-black text-navy/30 group-hover:text-navy transition-colors duration-300 tabular-nums">
+                        <span className="w-2 h-2 rounded-full bg-[#16A34A]/30 group-hover:bg-[#16A34A] transition-colors duration-300" />
+                        <span className="text-xl sm:text-2xl font-black text-slate-300 group-hover:text-[#16A34A] transition-colors duration-300 tabular-nums">
                           {step.step}
                         </span>
                       </div>
@@ -95,7 +95,7 @@ export default function HowItWorks() {
                   {/* Step Footer Indicator */}
                   <div className="mt-5 pt-3 border-t border-line/60 w-full flex items-center justify-between text-[11px] font-semibold text-mute">
                     <span>Langkah {idx + 1} dari 6</span>
-                    <span className="text-navy opacity-0 group-hover:opacity-100 transition-opacity">Siap ✓</span>
+                    <span className="text-[#15803D] font-bold opacity-0 group-hover:opacity-100 transition-opacity">Siap ✓</span>
                   </div>
 
                 </div>

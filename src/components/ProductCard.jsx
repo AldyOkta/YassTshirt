@@ -85,9 +85,13 @@ export default function ProductCard({ product, onImageClick }) {
           </span>
         </div>
 
-        {/* Badge Produk (Aturan 35: Isi #F2B705, teks #14213D) */}
+        {/* Badge Produk (Hierarki 60-30-10: Amber #F59E0B khusus Best Seller, netral untuk lainnya) */}
         {product.badge && (
-          <div className="absolute top-3 left-3 bg-accent text-navy text-[11px] font-bold px-3 py-1 rounded-full shadow-sm z-20 group-hover:scale-105 transition-transform pointer-events-none">
+          <div className={`absolute top-3 left-3 text-[11px] font-bold px-3 py-1 rounded-full shadow-xs z-20 group-hover:scale-105 transition-transform pointer-events-none ${
+            product.isHighlight
+              ? 'bg-accent text-navy shadow-sm'
+              : 'bg-white/95 text-slate-700 border border-slate-200/90 backdrop-blur-xs'
+          }`}>
             {product.badge}
           </div>
         )}
@@ -148,13 +152,13 @@ export default function ProductCard({ product, onImageClick }) {
           </div>
         </div>
 
-        {/* Direct WhatsApp Order CTA Button (Aturan Dokumen Warna: Outline Hijau, Terisi saat Hover) */}
+        {/* Direct WhatsApp Order CTA Button (Aturan Hierarki 60-30-10: Tinted Green #F0FDF4, Solid saat Hover) */}
         <div className="pt-2">
           <button
             type="button"
             onClick={() => openWhatsApp(WA_MESSAGES.productInquiry(product.name))}
             aria-label={`Pesan ${product.name} via WhatsApp`}
-            className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 min-h-[44px] rounded-xl border-[1.5px] border-wa bg-transparent text-wa hover:bg-wa hover:text-white text-sm font-bold transition-colors duration-200 group/btn active:scale-95 cursor-pointer"
+            className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 min-h-[44px] rounded-xl border border-[#BBF7D0] bg-[#F0FDF4] text-[#15803D] hover:bg-wa hover:text-white text-sm font-bold transition-colors duration-200 group/btn active:scale-95 cursor-pointer shadow-xs"
           >
             <MessageCircle className="w-4 h-4" />
             <span>Pesan via WA</span>

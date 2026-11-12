@@ -38,8 +38,8 @@ export default function Footer() {
             </div>
 
             <p className="text-sm text-[#C5CCDA] leading-relaxed max-w-sm">
-              Pusat sablon digital DTF (Direct to Film) &amp; custom apparel berkualitas tinggi. Solusi cetak kaos custom
-              desain bebas warna untuk kebutuhan personal, komunitas, brand apparel, dan event.
+              Pusat sablon digital DTF (Direct to Film) &amp; custom berkualitas tinggi. Solusi cetak kaos custom
+              desain bebas warna untuk kebutuhan personal, komunitas, brand, dan event.
             </p>
 
             {/* Social Media Links */}

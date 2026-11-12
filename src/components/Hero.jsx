@@ -119,7 +119,7 @@ export default function Hero() {
                   />
                 </div>
                 <div className="pt-2 text-center">
-                  <span className="text-[11px] font-extrabold text-navy tracking-wider">YASSTSHIRT APPAREL</span>
+                  <span className="text-[11px] font-extrabold text-navy tracking-wider">YASSTSHIRT</span>
                 </div>
               </div>
 

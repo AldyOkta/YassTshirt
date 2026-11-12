@@ -5,16 +5,16 @@ import { openWhatsApp, WA_MESSAGES } from '../lib/wa';
 export default function CallToAction() {
 
   return (
-    <section className="py-14 sm:py-24 bg-cream">
+    <section className="py-14 sm:py-24 bg-[#F0FDF4] border-t border-[#BBF7D0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
           {/* Left Column: Direct Value & Confident Action (7 cols) */}
           <div className="lg:col-span-7 space-y-6 text-left">
 
-            {/* Brand Identifier */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-navy/5 text-xs font-semibold text-navy">
-              <span>Spesialis Sablon Kaos DTF &amp; Apparel</span>
+            {/* Brand Identifier (Soft Emerald Tint) */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#DCFCE7] text-xs font-bold text-[#15803D]">
+              <span>Spesialis Sablon Kaos DTF</span>
             </div>
 
             {/* Headline — satu warna percaya diri tanpa underline ornamen */}
@@ -25,13 +25,13 @@ export default function CallToAction() {
             {/* Sub-headline */}
             <p className="text-base sm:text-lg text-mute leading-relaxed max-w-xl">
               Dari 1 kaos sampel pribadi sampai ratusan pcs untuk clothing brand dan komunitas.
-              Kirim konsep atau file desainmu ke WhatsApp, langsung kami cek dan proses dengan standar apparel distro.
+              Kirim konsep atau file desainmu ke WhatsApp, langsung kami cek dan proses dengan standar distro.
             </p>
 
             {/* 3 Concrete Production Guarantees */}
             <div className="space-y-4 pt-2">
               <div className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-navy shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-[#15803D] shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold text-navy text-sm sm:text-base">Tanpa Minimum Order</span>
                   <p className="text-xs sm:text-sm text-mute">
@@ -41,7 +41,7 @@ export default function CallToAction() {
               </div>
 
               <div className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-navy shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-[#15803D] shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold text-navy text-sm sm:text-base">100% Cotton Combed Reaktif</span>
                   <p className="text-xs sm:text-sm text-mute">
@@ -51,7 +51,7 @@ export default function CallToAction() {
               </div>
 
               <div className="flex items-start gap-3">
-                <CheckCircle2 className="w-5 h-5 text-navy shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-[#15803D] shrink-0 mt-0.5" />
                 <div>
                   <span className="font-bold text-navy text-sm sm:text-base">Presisi Cetak DTF 1440 DPI</span>
                   <p className="text-xs sm:text-sm text-mute">
@@ -77,11 +77,11 @@ export default function CallToAction() {
             {/* Operating Hours & Guarantee */}
             <div className="flex flex-wrap items-center gap-5 text-xs text-mute font-medium pt-1">
               <div className="flex items-center gap-1.5">
-                <Clock className="w-4 h-4 text-navy shrink-0" />
+                <Clock className="w-4 h-4 text-[#15803D] shrink-0" />
                 <span>Buka Setiap Hari (09.00 - 21.00 WIB)</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <ShieldCheck className="w-4 h-4 text-navy shrink-0" />
+                <ShieldCheck className="w-4 h-4 text-[#15803D] shrink-0" />
                 <span>100% Garansi Cetak Ulang Jika Cacat Sablon</span>
               </div>
             </div>
@@ -90,15 +90,15 @@ export default function CallToAction() {
 
           {/* Right Column: Clean Studio Product Showcase (5 cols) */}
           <div className="lg:col-span-5">
-            <div className="bg-white rounded-3xl p-5 sm:p-7 shadow-card space-y-5">
+            <div className="bg-white rounded-3xl p-5 sm:p-7 shadow-card border border-[#BBF7D0] space-y-5">
 
               {/* Card Header */}
               <div className="flex items-center justify-between text-xs">
                 <div>
-                  <span className="font-extrabold text-navy tracking-wide">YASSTSHIRT APPAREL</span>
+                  <span className="font-extrabold text-navy tracking-wide">YASSTSHIRT</span>
                   <span className="text-mute ml-2 font-medium">Standar Produksi</span>
                 </div>
-                <span className="px-2.5 py-1 rounded-full bg-navy/5 text-navy font-bold text-[11px]">
+                <span className="px-2.5 py-1 rounded-full bg-[#DCFCE7] text-[#15803D] font-bold text-[11px]">
                   Ready to Print
                 </span>
               </div>
@@ -117,7 +117,7 @@ export default function CallToAction() {
               </div>
 
               {/* 2x2 Specs Grid */}
-              <div className="bg-cream/60 rounded-2xl p-4 grid grid-cols-2 gap-3.5 text-xs">
+              <div className="bg-[#F8FAFC] rounded-2xl p-4 grid grid-cols-2 gap-3.5 text-xs border border-line">
                 <div>
                   <span className="text-[10px] font-bold text-mute block">Bahan Kaos</span>
                   <span className="font-bold text-navy">Cotton Combed 100%</span>
