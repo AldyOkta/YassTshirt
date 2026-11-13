@@ -1,23 +1,17 @@
 import React, { useState, useCallback } from 'react';
 import ProductCard from './ProductCard';
-import ImageLightboxModal from './ImageLightboxModal';
 import { PRODUCTS, FITTING_GUIDE } from '../data/products';
 import { openWhatsApp, WA_MESSAGES } from '../lib/wa';
 import { HelpCircle, MessageSquare, Shirt, Check } from 'lucide-react';
+import BlurText from './BlurText';
 
-export default function ProductCatalog({ onModalStateChange }) {
+export default function ProductCatalog({ onOpenModal, onModalStateChange }) {
   const [selectedFilter, setSelectedFilter] = useState('all');
-  const [activeZoomProduct, setActiveZoomProduct] = useState(null);
 
   const handleOpenModal = useCallback((product) => {
-    setActiveZoomProduct(product);
+    if (onOpenModal) onOpenModal(product);
     if (onModalStateChange) onModalStateChange(true);
-  }, [onModalStateChange]);
-
-  const handleCloseModal = useCallback(() => {
-    setActiveZoomProduct(null);
-    if (onModalStateChange) onModalStateChange(false);
-  }, [onModalStateChange]);
+  }, [onOpenModal, onModalStateChange]);
 
   const filters = [
     { id: 'all', label: 'Semua Produk' },
@@ -49,9 +43,14 @@ export default function ProductCatalog({ onModalStateChange }) {
           <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-mute">
             KATALOG SABLON DTF
           </span>
-          <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold text-navy tracking-tight">
-            Pilihan Pola Kaos & Paket Sablon
-          </h2>
+          <BlurText
+            text="Pilihan Pola Kaos & Paket Sablon"
+            delay={60}
+            animateBy="words"
+            direction="top"
+            as="h2"
+            className="mt-2 text-3xl sm:text-4xl font-extrabold text-navy tracking-tight"
+          />
           <p className="mt-2 text-sm sm:text-base text-mute max-w-2xl leading-relaxed">
             Tersedia pola potongan Reguler, Oversize, hingga Boxy cut dengan bahan cotton combed premium dan jaminan sablon DTF tajam beresolusi tinggi.
           </p>
@@ -182,14 +181,6 @@ export default function ProductCatalog({ onModalStateChange }) {
           <span>Tanya Model Lain via WA</span>
         </button>
       </div>
-
-      {/* Image Lightbox & Zoom Modal */}
-      {activeZoomProduct && (
-        <ImageLightboxModal
-          product={activeZoomProduct}
-          onClose={handleCloseModal}
-        />
-      )}
 
     </section>
   );

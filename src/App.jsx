@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import MarqueeTicker from './components/MarqueeTicker';
@@ -10,8 +10,15 @@ import CallToAction from './components/CallToAction';
 import Footer from './components/Footer';
 import FloatingWA from './components/FloatingWA';
 
+// Lazy load ImageLightboxModal agar payload JavaScript awal ringan dan modal hanya diunduh saat dibutuhkan
+const ImageLightboxModal = lazy(() => import('./components/ImageLightboxModal'));
+
 export default function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeModalProduct, setActiveModalProduct] = useState(null);
+
+  const handleCloseModal = () => {
+    setActiveModalProduct(null);
+  };
 
   return (
     <div className="min-h-[100dvh] flex flex-col bg-cream text-navy selection:bg-navy selection:text-white overflow-x-hidden relative">
@@ -23,8 +30,8 @@ export default function App() {
         <Hero />
         <MarqueeTicker />
         <Features />
-        <ProductCatalog onModalStateChange={setIsModalOpen} />
-        <HowItWorks />
+        <ProductCatalog onOpenModal={setActiveModalProduct} />
+        <HowItWorks onOpenModal={setActiveModalProduct} />
         <FAQ />
         <CallToAction />
       </main>
@@ -33,7 +40,17 @@ export default function App() {
       <Footer />
 
       {/* Floating Action Button (WhatsApp - Only Green Element, disembunyikan saat modal terbuka) */}
-      <FloatingWA isHidden={isModalOpen} />
+      <FloatingWA isHidden={Boolean(activeModalProduct)} />
+
+      {/* Centralized Lazy Loaded Lightbox Modal */}
+      {activeModalProduct && (
+        <Suspense fallback={null}>
+          <ImageLightboxModal
+            product={activeModalProduct}
+            onClose={handleCloseModal}
+          />
+        </Suspense>
+      )}
     </div>
   );
 }

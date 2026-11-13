@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import { 
   MessageCircle, 
   UploadCloud, 
@@ -11,8 +11,8 @@ import {
 } from 'lucide-react';
 import { ORDER_STEPS } from '../data/products';
 import { openWhatsApp, WA_MESSAGES } from '../lib/wa';
-import ImageLightboxModal from './ImageLightboxModal';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import BlurText from './BlurText';
 
 const stepIcons = {
   MessageCircle,
@@ -23,13 +23,8 @@ const stepIcons = {
   CheckCircle2
 };
 
-export default function HowItWorks() {
-  const [showOrderChart, setShowOrderChart] = useState(false);
+export default function HowItWorks({ onOpenModal }) {
   const [sectionRef, isVisible] = useScrollReveal({ threshold: 0.1 });
-
-  const handleCloseOrderChart = useCallback(() => {
-    setShowOrderChart(false);
-  }, []);
 
   return (
     <section id="cara-pesan" className="py-16 sm:py-24 bg-[#F8FAFC] border-t border-line relative overflow-hidden">
@@ -40,9 +35,14 @@ export default function HowItWorks() {
           <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-mute">
             SISTEM ORDER RESMI
           </span>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-navy tracking-tight">
-            Cara Pesan Kaos Custom di YassTshirt
-          </h2>
+          <BlurText
+            text="Cara Pesan Kaos Custom di YassTshirt"
+            delay={60}
+            animateBy="words"
+            direction="top"
+            as="h2"
+            className="mt-3 text-3xl sm:text-4xl font-extrabold text-navy tracking-tight justify-center"
+          />
           <p className="mt-3 text-sm sm:text-base text-mute leading-relaxed max-w-2xl mx-auto">
             6 langkah praktis dan transparan dari chat WhatsApp sampai kaos selesai diproduksi. Tanpa proses registrasi yang membingungkan.
           </p>
@@ -122,7 +122,17 @@ export default function HowItWorks() {
 
           <button
             type="button"
-            onClick={() => setShowOrderChart(true)}
+            onClick={() => {
+              if (onOpenModal) {
+                onOpenModal({
+                  name: 'Bagan Resmi Alur Pemesanan Kaos Custom YassTshirt',
+                  image: '/sistem-order.webp',
+                  badge: 'Alur Resmi Toko',
+                  cut: 'CS WhatsApp Resmi YassTshirt',
+                  priceLabel: 'Fast Response'
+                });
+              }
+            }}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 sm:py-2.5 min-h-[44px] rounded-full border border-navy text-navy hover:bg-navy hover:text-white text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap shadow-sm"
           >
             <ZoomIn className="w-4 h-4" />
@@ -149,20 +159,6 @@ export default function HowItWorks() {
         </div>
 
       </div>
-
-      {/* Lightbox Modal untuk Bagan sistem-order.png */}
-      {showOrderChart && (
-        <ImageLightboxModal
-          product={{
-            name: 'Bagan Resmi Alur Pemesanan Kaos Custom YassTshirt',
-            image: '/sistem-order.webp',
-            badge: 'Alur Resmi Toko',
-            cut: 'CS WhatsApp Resmi YassTshirt',
-            priceLabel: 'Fast Response'
-          }}
-          onClose={handleCloseOrderChart}
-        />
-      )}
 
     </section>
   );

@@ -3,6 +3,8 @@ import { Palette, Sparkles, Focus, ShieldCheck } from 'lucide-react';
 import { FEATURES } from '../data/products';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 import { useCountUp } from '../hooks/useCountUp';
+import BlurText from './BlurText';
+import ScrollReveal from './ScrollReveal';
 
 const iconMap = {
   Palette,
@@ -38,13 +40,28 @@ export default function Features() {
           <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-mute">
             KENAPA PILIH SABLON DTF?
           </span>
-          <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-navy tracking-tight">
-            Kelebihan Sablon DTF di YassTshirt
-          </h2>
-          <p className="mt-3 text-base text-mute leading-relaxed max-w-2xl mx-auto">
-            Direct to Film (DTF) adalah teknologi sablon digital modern yang menggabungkan ketajaman warna foto 
-            dengan kelenturan dan daya tahan sablon manual kelas atas.
-          </p>
+          <BlurText
+            text="Kelebihan Sablon DTF di YassTshirt"
+            delay={60}
+            animateBy="words"
+            direction="top"
+            as="h2"
+            className="mt-3 text-3xl sm:text-4xl font-extrabold text-navy tracking-tight justify-center"
+          />
+          <ScrollReveal
+            as="p"
+            baseOpacity={0.2}
+            enableBlur={true}
+            blurStrength={3}
+            baseRotation={0}
+            splitBy="words"
+            wordAnimationStart="top 85%"
+            wordAnimationEnd="bottom 50%"
+            containerClassName="mt-4 max-w-2xl mx-auto"
+            textClassName="text-base sm:text-lg text-navy font-medium leading-relaxed"
+          >
+            Direct to Film (DTF) adalah teknologi sablon digital modern yang menggabungkan ketajaman warna foto dengan kelenturan dan daya tahan sablon manual kelas atas.
+          </ScrollReveal>
         </div>
 
         {/* Features 4-Column Grid with 21st.dev Staggered Scroll Reveal */}

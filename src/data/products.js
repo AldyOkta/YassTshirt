@@ -174,7 +174,7 @@ export const PRODUCTS = [
     material: '100% Cotton Heavyweight 16s Super Premium',
     printArea: 'Depan / Belakang (A5 s/d A2)',
     turnaround: '2 - 3 Hari Kerja',
-    image: '/pricelist-boxy-16s.webp'
+    image: '/detail-boxy-16s.webp'
   },
   {
     id: 'dtf-brand-package-30s',
