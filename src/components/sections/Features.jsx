@@ -1,10 +1,10 @@
 import React from 'react';
 import { Palette, Sparkles, Focus, ShieldCheck } from 'lucide-react';
-import { FEATURES } from '../data/products';
-import { useScrollReveal } from '../hooks/useScrollReveal';
-import { useCountUp } from '../hooks/useCountUp';
-import BlurText from './BlurText';
-import ScrollReveal from './ScrollReveal';
+import { FEATURES } from '@/data/content';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
+import { useCountUp } from '@/hooks/useCountUp';
+import BlurText from '../ui/BlurText';
+import ScrollReveal from '../ui/ScrollReveal';
 
 const iconMap = {
   Palette,

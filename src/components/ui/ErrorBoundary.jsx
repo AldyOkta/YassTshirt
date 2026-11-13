@@ -1,6 +1,6 @@
 import React from 'react';
 import { RefreshCw, MessageCircle, AlertTriangle } from 'lucide-react';
-import { openWhatsApp, WA_MESSAGES } from '../lib/wa';
+import { openWhatsApp, WA_MESSAGES } from '@/lib/wa';
 
 export default class ErrorBoundary extends React.Component {
   constructor(props) {

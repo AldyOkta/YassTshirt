@@ -1,17 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { 
-  X, 
-  ZoomIn, 
-  ZoomOut, 
-  Plus, 
-  Minus, 
-  RotateCcw, 
-  MessageCircle, 
-  ArrowUpRight, 
-  Check, 
-  Move 
+import {
+  X,
+  ZoomIn,
+  ZoomOut,
+  Plus,
+  Minus,
+  RotateCcw,
+  MessageCircle,
+  ArrowUpRight,
+  Check,
+  Move
 } from 'lucide-react';
-import { openWhatsApp, WA_MESSAGES } from '../lib/wa';
+import { openWhatsApp, WA_MESSAGES } from '@/lib/wa';
 
 export default function ImageLightboxModal({ product, onClose }) {
   const [scale, setScale] = useState(1);
@@ -185,7 +185,7 @@ export default function ImageLightboxModal({ product, onClose }) {
     >
       {/* Modal Dialog Card (Clean Studio Light Theme) */}
       <div className="relative flex w-full max-w-4xl flex-col overflow-hidden rounded-2xl bg-white shadow-2xl border border-line max-h-[calc(100dvh-1.5rem)] sm:max-h-[calc(100dvh-3rem)]">
-        
+
         {/* Modal Top Bar (shrink-0) - Clean White & Navy Theme */}
         <header className="flex shrink-0 items-center justify-between gap-2 sm:gap-3 border-b border-line px-4 sm:px-6 py-3.5 bg-white text-navy z-20">
           <div className="min-w-0 flex-1 pr-1 sm:pr-2">
@@ -268,13 +268,12 @@ export default function ImageLightboxModal({ product, onClose }) {
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
-          className={`relative min-h-0 flex-1 overflow-hidden bg-[#F1F5F9] touch-none flex items-center justify-center p-3 sm:p-5 select-none ${
-            scale === 1
-              ? 'cursor-zoom-in'
-              : isDragging
+          className={`relative min-h-0 flex-1 overflow-hidden bg-[#F1F5F9] touch-none flex items-center justify-center p-3 sm:p-5 select-none ${scale === 1
+            ? 'cursor-zoom-in'
+            : isDragging
               ? 'cursor-grabbing'
               : 'cursor-grab'
-          }`}
+            }`}
         >
           {/* Draggable & Scalable Image Container */}
           <div
@@ -349,7 +348,6 @@ export default function ImageLightboxModal({ product, onClose }) {
 
           <div className="ml-auto flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-end">
             <div className="text-left sm:text-right leading-tight">
-              <div className="text-[11px] uppercase font-bold text-mute tracking-wider">Harga Mulai</div>
               <div className="text-base sm:text-lg font-black text-navy tabular-nums">{product.priceLabel}</div>
             </div>
 

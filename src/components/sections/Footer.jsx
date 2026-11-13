@@ -1,7 +1,7 @@
 import React from 'react';
 import { Instagram, MessageCircle, MapPin, Clock, Truck } from 'lucide-react';
-import { SHOP_CONFIG } from '../data/products';
-import { openWhatsApp, WA_MESSAGES } from '../lib/wa';
+import { SHOP_CONFIG } from '@/data/config';
+import { openWhatsApp, WA_MESSAGES } from '@/lib/wa';
 
 function TikTokIcon({ className = "w-4 h-4" }) {
   return (

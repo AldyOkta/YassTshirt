@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { MessageCircle, Check, ArrowUpRight, ZoomIn } from 'lucide-react';
-import { openWhatsApp, WA_MESSAGES } from '../lib/wa';
+import { openWhatsApp, WA_MESSAGES } from '@/lib/wa';
 
 export default function ProductCard({ product, onImageClick }) {
   const cardRef = useRef(null);

@@ -3,7 +3,7 @@
  * Menghasilkan tautan resmi WhatsApp https://wa.me/<nomor>?text=<pesan>
  * Mendukung format string nomor langsung (08xxx / 628xxx / +62xxx) maupun token array.
  */
-import { SHOP_CONFIG } from '../data/products.js';
+import { SHOP_CONFIG } from '../data/config.js';
 
 /**
  * Format nomor telepon agar valid untuk URL WhatsApp (wa.me)

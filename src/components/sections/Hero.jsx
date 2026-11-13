@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 import { MessageCircle, ArrowRight, Sparkles, CheckCircle, ShieldCheck } from 'lucide-react';
 import { motion, useScroll, useTransform, useReducedMotion } from 'motion/react';
-import { openWhatsApp, WA_MESSAGES } from '../lib/wa';
-import SplitText from './SplitText';
+import { openWhatsApp, WA_MESSAGES } from '@/lib/wa';
+import SplitText from '../ui/SplitText';
 
 export default function Hero() {
   const heroRef = useRef(null);

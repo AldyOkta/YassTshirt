@@ -1,7 +1,7 @@
 import React from 'react';
 import { MessageCircle, Clock, ShieldCheck, ArrowRight, CheckCircle2 } from 'lucide-react';
-import { openWhatsApp, WA_MESSAGES } from '../lib/wa';
-import ScrollReveal from './ScrollReveal';
+import { openWhatsApp, WA_MESSAGES } from '@/lib/wa';
+import ScrollReveal from '../ui/ScrollReveal';
 
 export default function CallToAction() {
 

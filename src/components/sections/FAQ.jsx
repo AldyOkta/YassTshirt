@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-import { FAQS } from '../data/products';
+import { FAQS } from '@/data/content';
 
 export default function FAQ() {
   const [openIdx, setOpenIdx] = useState(0);

@@ -1,9 +1,9 @@
 import React, { useState, useCallback } from 'react';
-import ProductCard from './ProductCard';
-import { PRODUCTS, FITTING_GUIDE } from '../data/products';
-import { openWhatsApp, WA_MESSAGES } from '../lib/wa';
+import ProductCard from '../ui/ProductCard';
+import { PRODUCTS, FITTING_GUIDE } from '@/data/products';
+import { openWhatsApp, WA_MESSAGES } from '@/lib/wa';
 import { HelpCircle, MessageSquare, Shirt, Check } from 'lucide-react';
-import BlurText from './BlurText';
+import BlurText from '../ui/BlurText';
 
 export default function ProductCatalog({ onOpenModal, onModalStateChange }) {
   const [selectedFilter, setSelectedFilter] = useState('all');

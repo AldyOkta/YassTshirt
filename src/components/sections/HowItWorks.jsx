@@ -1,18 +1,18 @@
 import React from 'react';
-import { 
-  MessageCircle, 
-  UploadCloud, 
-  Lightbulb, 
-  ClipboardList, 
-  Receipt, 
-  CheckCircle2, 
+import {
+  MessageCircle,
+  UploadCloud,
+  Lightbulb,
+  ClipboardList,
+  Receipt,
+  CheckCircle2,
   ArrowRight,
   ZoomIn
 } from 'lucide-react';
-import { ORDER_STEPS } from '../data/products';
-import { openWhatsApp, WA_MESSAGES } from '../lib/wa';
-import { useScrollReveal } from '../hooks/useScrollReveal';
-import BlurText from './BlurText';
+import { ORDER_STEPS } from '@/data/content';
+import { openWhatsApp, WA_MESSAGES } from '@/lib/wa';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
+import BlurText from '../ui/BlurText';
 
 const stepIcons = {
   MessageCircle,
@@ -29,7 +29,7 @@ export default function HowItWorks({ onOpenModal }) {
   return (
     <section id="cara-pesan" className="py-16 sm:py-24 bg-[#F8FAFC] border-t border-line relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
           <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-mute">
@@ -54,18 +54,17 @@ export default function HowItWorks({ onOpenModal }) {
             {ORDER_STEPS.map((step, idx) => {
               const IconComponent = stepIcons[step.icon] || MessageCircle;
               return (
-                <div 
-                  key={step.step} 
+                <div
+                  key={step.step}
                   style={{
                     transitionDelay: `${idx * 75}ms`,
                   }}
-                  className={`group relative flex flex-col justify-between items-start bg-white p-6 sm:p-7 rounded-2xl border border-line hover:border-slate-300 hover:shadow-card hover:-translate-y-1.5 transition-all duration-500 ease-out ${
-                    isVisible
+                  className={`group relative flex flex-col justify-between items-start bg-white p-6 sm:p-7 rounded-2xl border border-line hover:border-slate-300 hover:shadow-card hover:-translate-y-1.5 transition-all duration-500 ease-out ${isVisible
                       ? 'opacity-100 translate-y-0'
                       : 'opacity-0 translate-y-6 motion-reduce:opacity-100 motion-reduce:translate-y-0'
-                  }`}
+                    }`}
                 >
-                  
+
                   {/* Top: Step Number & Icon Header */}
                   <div className="w-full">
                     <div className="w-full flex items-center justify-between mb-5">
@@ -129,7 +128,7 @@ export default function HowItWorks({ onOpenModal }) {
                   image: '/sistem-order.webp',
                   badge: 'Alur Resmi Toko',
                   cut: 'CS WhatsApp Resmi YassTshirt',
-                  priceLabel: 'Fast Response'
+
                 });
               }
             }}
@@ -152,7 +151,7 @@ export default function HowItWorks({ onOpenModal }) {
           >
             {/* Shimmer Sheen Effect */}
             <span className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/25 to-transparent transform -skew-x-12 -translate-x-full animate-shimmer motion-reduce:animate-none pointer-events-none" />
-            
+
             <span className="relative z-10">Mulai Chat Sekarang via WhatsApp</span>
             <ArrowRight className="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform" />
           </button>

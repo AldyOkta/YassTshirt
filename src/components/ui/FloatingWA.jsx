@@ -1,5 +1,5 @@
 import React from 'react';
-import { openWhatsApp, WA_MESSAGES } from '../lib/wa';
+import { openWhatsApp, WA_MESSAGES } from '@/lib/wa';
 
 function WhatsAppIcon({ className = "w-7 h-7" }) {
   return (

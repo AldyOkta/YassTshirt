@@ -1,91 +1,10 @@
 /**
- * Single Source of Truth untuk Konfigurasi Toko & Katalog Produk YassTshirt
- * Pemilik toko cukup mengedit file ini untuk mengubah nomor WA, harga, produk, dan info lainnya.
+ * Katalog Produk & Fitting Guide YassTshirt
  */
 
-export const SHOP_CONFIG = {
-  name: 'YassTshirt',
-  tagline: 'Custom Kaos Sablon DTF Satuan & Partai',
-  // Nomor WhatsApp resmi toko YassTshirt
-  whatsapp: '085641720045',
-  instagram: 'yasstshirts_',
-  instagramUrl: 'https://www.instagram.com/yasstshirts_',
-  tiktok: 'yasstshirtcustom',
-  tiktokUrl: 'https://www.tiktok.com/@yasstshirtcustom',
-  location: 'Indonesia',
-  operatingHours: 'Senin - Sabtu: 09.00 - 21.00 WIB',
-  addressDescription: 'Siap kirim ke seluruh kota di Indonesia melalui JNE, J&T, SiCepat, dan Cargo untuk pesanan partai.'
-};
-
-export const FEATURES = [
-  {
-    id: 1,
-    title: 'Full Color & Gradasi Bebas',
-    description: 'Sablon DTF mampu mencetak jutaan warna, gradasi halus, hingga foto tanpa batasan jumlah warna screen.',
-    icon: 'Palette',
-    badge: 'Kualitas HD'
-  },
-  {
-    id: 2,
-    title: 'Bisa Pesan Satuan (No MOQ)',
-    description: 'Tanpa minimum order. Mau bikin 1 kaos untuk hadiah, sampel brand, atau koleksi pribadi tetap kami layani sepenuh hati.',
-    icon: 'Sparkles',
-    badge: 'Fleksibel'
-  },
-  {
-    id: 3,
-    title: 'Detail Tajam & Presisi',
-    description: 'Huruf kecil, raster halus, dan garis super tipis tetap tercetak presisi berkat resolusi cetak printer DTF modern.',
-    icon: 'Focus',
-    badge: 'Presisi Tinggi'
-  },
-  {
-    id: 4,
-    title: 'Tahan Cuci & Elastis',
-    description: 'Menggunakan powder hotmelt premium dan tinta berkualitas. Sablon lentur mengikuti serat kain dan tidak mudah pecah.',
-    icon: 'ShieldCheck',
-    badge: 'Awet & Tahan Lama'
-  }
-];
-
-export const ORDER_STEPS = [
-  {
-    step: '01',
-    title: 'Chat di WhatsApp',
-    description: 'Hubungi kami via WhatsApp untuk memulai pesanan atau konsultasi custom kaos.',
-    icon: 'MessageCircle'
-  },
-  {
-    step: '02',
-    title: 'Kirim Mockup & Desain Mentahan',
-    description: 'Kirimkan file desain kamu (baru setelah ini admin kami bisa memberikan estimasi harga pasti).',
-    icon: 'UploadCloud'
-  },
-  {
-    step: '03',
-    title: 'Konsultasi Desain (Opsional)',
-    description: 'Diskusikan ide, kombinasi warna, atau posisi titik sablon sebelum lanjut ke proses order.',
-    icon: 'Lightbulb'
-  },
-  {
-    step: '04',
-    title: 'Isi Format Order',
-    description: 'Lengkapi detail pesanan seperti jenis bahan/fitting, ukuran, warna kaos, dan kuantitas pcs.',
-    icon: 'ClipboardList'
-  },
-  {
-    step: '05',
-    title: 'CS Mengirim Rincian Harga + Ongkir',
-    description: 'Tim kami mengirimkan rincian total biaya pesanan secara lengkap, transparan, beserta ongkir.',
-    icon: 'Receipt'
-  },
-  {
-    step: '06',
-    title: 'Pembayaran & Proses Produksi',
-    description: 'Setelah pembayaran diterima, pesanan langsung diproses dalam 3 - 5 hari kerja (maksimal).',
-    icon: 'CheckCircle2'
-  }
-];
+// Re-export untuk kompatibilitas ke belakang
+export { SHOP_CONFIG } from './config.js';
+export { FEATURES, ORDER_STEPS, FAQS } from './content.js';
 
 export const FITTING_GUIDE = [
   {
@@ -255,24 +174,5 @@ export const PRODUCTS = [
     printArea: 'Lebar 58cm x Panjang bebas',
     turnaround: 'Bisa Ditunggu / Same Day',
     image: '/contoh-dtf-raster.webp'
-  }
-];
-
-export const FAQS = [
-  {
-    question: 'Berapa minimal order di YassTshirt?',
-    answer: 'Tidak ada minimal order! Kamu bisa pesan 1 kaos saja (satuan) untuk keperluan pribadi atau kado. Kami juga melayani pesanan partai puluhan hingga ratusan pcs dengan harga grosir yang jauh lebih hemat.'
-  },
-  {
-    question: 'Format file desain apa yang paling bagus?',
-    answer: 'Format terbaik adalah file PNG dengan latar belakang transparan beresolusi minimal 300 DPI, atau file vektor (PDF, Adobe Illustrator, CorelDraw). Belum punya format ini? Kirim saja gambar yang kamu punya ke admin, kami bantu cek.'
-  },
-  {
-    question: 'Berapa lama proses pengerjaannya?',
-    answer: 'Untuk pesanan satuan biasanya selesai dalam 1 - 2 hari kerja setelah desain disetujui. Untuk pesanan partai biasanya 3 - 7 hari kerja tergantung antrean dan kuantitas.'
-  },
-  {
-    question: 'Apakah sablon DTF awet saat dicuci berkali-kali?',
-    answer: 'Sangat awet! Sablon DTF kami menggunakan lem serbuk hotmelt elastis dan tinta berstandar tinggi. Tips perawatan: cuci dengan membalik kaos (gambar di dalam), hindari menyetrika langsung di atas permukaan sablon.'
   }
 ];

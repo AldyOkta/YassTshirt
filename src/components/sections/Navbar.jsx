@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MessageCircle, Menu, X } from 'lucide-react';
-import { openWhatsApp, WA_MESSAGES } from '../lib/wa';
+import { openWhatsApp, WA_MESSAGES } from '@/lib/wa';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
