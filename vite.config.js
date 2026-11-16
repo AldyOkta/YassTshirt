@@ -12,7 +12,7 @@ export default defineConfig({
   },
   server: {
     port: 3000,
-    allowedHosts: ['.ngrok-free.dev'],
+    allowedHosts: process.env.TUNNEL_HOST ? [process.env.TUNNEL_HOST] : ['.ngrok-free.dev'],
     open: false
   },
   build: {
