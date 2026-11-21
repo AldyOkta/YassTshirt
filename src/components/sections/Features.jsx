@@ -4,7 +4,6 @@ import { FEATURES } from '@/data/content';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
 import { useCountUp } from '@/hooks/useCountUp';
 import BlurText from '../ui/BlurText';
-import ScrollReveal from '../ui/ScrollReveal';
 
 const iconMap = {
   Palette,
@@ -48,20 +47,9 @@ export default function Features() {
             as="h2"
             className="mt-3 text-3xl sm:text-4xl font-extrabold text-navy tracking-tight justify-center"
           />
-          <ScrollReveal
-            as="p"
-            baseOpacity={0.2}
-            enableBlur={true}
-            blurStrength={3}
-            baseRotation={0}
-            splitBy="words"
-            wordAnimationStart="top 85%"
-            wordAnimationEnd="bottom 50%"
-            containerClassName="mt-4 max-w-2xl mx-auto"
-            textClassName="text-base sm:text-lg text-navy font-medium leading-relaxed"
-          >
+          <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-mute font-medium leading-relaxed">
             Direct to Film (DTF) adalah teknologi sablon digital modern yang menggabungkan ketajaman warna foto dengan kelenturan dan daya tahan sablon manual kelas atas.
-          </ScrollReveal>
+          </p>
         </div>
 
         {/* Features 4-Column Grid with 21st.dev Staggered Scroll Reveal */}

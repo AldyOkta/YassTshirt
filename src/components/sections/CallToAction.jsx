@@ -1,7 +1,6 @@
 import React from 'react';
 import { MessageCircle, Clock, ShieldCheck, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { openWhatsApp, WA_MESSAGES } from '@/lib/wa';
-import ScrollReveal from '../ui/ScrollReveal';
 
 export default function CallToAction() {
 
@@ -23,21 +22,10 @@ export default function CallToAction() {
               Bawa Desainmu, Biar Kami yang Cetak.
             </h2>
 
-            {/* Sub-headline with Apple-style Scroll Scrub */}
-            <ScrollReveal
-              as="p"
-              baseOpacity={0.2}
-              enableBlur={true}
-              blurStrength={3}
-              baseRotation={0}
-              splitBy="words"
-              wordAnimationStart="top 85%"
-              wordAnimationEnd="bottom 55%"
-              containerClassName="my-0 max-w-xl"
-              textClassName="text-base sm:text-lg text-navy font-medium leading-relaxed"
-            >
+            {/* Sub-headline */}
+            <p className="my-0 max-w-xl text-base sm:text-lg text-slate-600 font-medium leading-relaxed">
               Dari 1 kaos sampel pribadi sampai ratusan pcs untuk clothing brand dan komunitas. Kirim konsep atau file desainmu ke WhatsApp, langsung kami cek dan proses dengan standar distro.
-            </ScrollReveal>
+            </p>
 
             {/* 3 Concrete Production Guarantees */}
             <div className="space-y-4 pt-2">

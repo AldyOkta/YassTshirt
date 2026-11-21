@@ -89,7 +89,7 @@ export default function ProductCard({ product, onImageClick }) {
         {product.badge && (
           <div className={`absolute top-3 left-3 text-[11px] font-bold px-3 py-1 rounded-full shadow-xs z-20 group-hover:scale-105 transition-transform pointer-events-none ${
             product.isHighlight
-              ? 'bg-accent text-navy shadow-sm'
+              ? 'bg-accent text-white shadow-sm'
               : 'bg-white/95 text-slate-700 border border-slate-200/90 backdrop-blur-xs'
           }`}>
             {product.badge}

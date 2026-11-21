@@ -171,7 +171,7 @@ export default function Hero() {
                 style={{ y: yStamp, rotate: rotateStamp }}
                 className="absolute -top-3 -right-3 z-30 will-change-transform"
               >
-                <div className="bg-accent text-navy p-3.5 sm:p-4 rounded-2xl shadow-card flex flex-col items-center justify-center border border-navy/10 group-hover:scale-110 transition-transform duration-300">
+                <div className="bg-accent text-white p-3.5 sm:p-4 rounded-2xl shadow-card flex flex-col items-center justify-center border border-white/20 group-hover:scale-110 transition-transform duration-300">
                   <span className="text-[10px] sm:text-xs font-bold tracking-wider uppercase">Sablon</span>
                   <span className="text-base sm:text-lg font-black leading-none tabular-nums">100%</span>
                   <span className="text-[9px] sm:text-[10px] font-bold">Presisi</span>

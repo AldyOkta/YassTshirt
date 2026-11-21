@@ -3,15 +3,17 @@
 @tailwind utilities;
 
 :root {
-  --bg: #F8F9FA;
+  --bg: #F8FAFC;
   --card: #FFFFFF;
   --line: #E2E8F0;
   --ink: #0F172A;
-  --mute: #475569;
+  --mute: #64748B;
   --soft: rgba(15, 23, 42, 0.06);
-  --wa: #15803D;
-  --wa-hover: #116B32;
-  --accent: #F59E0B;
+  --wa: #16A34A;
+  --wa-hover: #15803D;
+  --accent: #EA580C;
+  --accent-hover: #C2410C;
+  --accent-light: #FFF7ED;
 }
 
 @layer base {
@@ -20,6 +22,10 @@
     background-color: var(--bg);
     color: var(--ink);
     scrollbar-gutter: stable;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
   }
 }
 
